@@ -2,16 +2,43 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ff6b00" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#050505" />
     <meta name="description" content="Companhia Fitness — academia em Marabá com treinos, avaliação física e acompanhamento profissional." />
     <title>Companhia Fitness</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/experience.css" />
+    <script>
+      (() => {
+        try {
+          const day = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Belem' }).format(new Date())
+          const key = 'cf_intro_day_v2'
+          if (localStorage.getItem(key) !== day) {
+            document.documentElement.classList.add('cf-show-intro')
+            localStorage.setItem(key, day)
+          }
+        } catch {
+          document.documentElement.classList.add('cf-show-intro')
+        }
+      })()
+    </script>
   </head>
   <body>
+    <div id="cf-intro" aria-hidden="true">
+      <div class="cf-intro-inner">
+        <div class="cf-intro-chip">MARABÁ • PARÁ</div>
+        <div class="cf-intro-name">
+          <strong>COMPANHIA</strong>
+          <strong><em>FITNESS</em></strong>
+        </div>
+        <div class="cf-intro-bar"><i></i></div>
+        <div class="cf-intro-caption">movimento • força • evolução</div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/experience.js"></script>
   </body>
 </html>
